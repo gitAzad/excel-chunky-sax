@@ -20,6 +20,20 @@ jobs:
         distribution: 'temurin'
         java-version: '11'
 
+    - name: Generate GPG keys
+      run: |
+        gpg --batch --gen-key <<EOF
+        %echo Generating a GPG key
+        Key-Type: default
+        Subkey-Type: default
+        Name-Real: Md Azad
+        Name-Email: mo.azad1999@gmail.com
+        Expire-Date: 0
+        %no-protection
+        %commit
+        %echo Done
+        EOF
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml -Dversion=${{ inputs.version }}
 
@@ -45,17 +59,3 @@ jobs:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
         MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-
-    - name: Generate GPG keys
-      run: |
-        gpg --batch --gen-key <<EOF
-        %echo Generating a GPG key
-        Key-Type: default
-        Subkey-Type: default
-        Name-Real: Md Azad
-        Name-Email: mo.azad1999@gmail.com
-        Expire-Date: 0
-        %no-protection
-        %commit
-        %echo Done
-        EOF
