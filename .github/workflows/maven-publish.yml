@@ -9,6 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    inputs:
+      version:
+        description: 'The version to use for the Maven package'
+        required: true
+
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -18,7 +23,7 @@ jobs:
         java-version: '11'
 
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file pom.xml -Dversion=${{ inputs.version }}
 
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy
@@ -42,3 +47,17 @@ jobs:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
         MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+
+    - name: Generate GPG keys
+      run: |
+        gpg --batch --gen-key <<EOF
+        %echo Generating a GPG key
+        Key-Type: default
+        Subkey-Type: default
+        Name-Real: Md Azad
+        Name-Email: mo.azad1999@gmail.com
+        Expire-Date: 0
+        %no-protection
+        %commit
+        %echo Done
+        EOF
