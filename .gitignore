@@ -1,0 +1,29 @@
+# Maven build directories
+target/
+bin/
+release/
+
+# IDE-specific files and directories (e.g., IntelliJ IDEA, Eclipse, NetBeans)
+.idea/
+.project
+.classpath
+.settings/
+*.iml
+*.ipr
+*.iws
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# User-specific files
+*.log
+*.lock
+
+# Maven wrapper
+.mvn/wrapper/
+
+# vscode
+.vscode/
