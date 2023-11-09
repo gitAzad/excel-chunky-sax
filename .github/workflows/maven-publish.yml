@@ -2,18 +2,16 @@ name: Maven Package
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'The version to use for the Maven package'
+        required: true
   release:
     types: [created]
   
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    inputs:
-      version:
-        description: 'The version to use for the Maven package'
-        required: true
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
