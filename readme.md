@@ -2,6 +2,43 @@
 
 The ExcelChunkySAX library provides a convenient way to process large Excel files in chunks using a SAX parser. This library is especially useful when dealing with large Excel files, as it reads the file incrementally, enabling you to perform specific actions on each chunk of data. It utilizes the Apache POI library to read the Excel file and a SAX parser to parse the underlying XML data.
 
+## Installation
+
+### Maven
+
+To install the ExcelChunkySAX library using Maven, add the following dependency to your `pom.xml` file:
+
+```xml
+<dependency>
+    <groupId>com.mdazad.chunkysax</groupId>
+    <artifactId>excel-chunky-sax</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+Then, run the following command to update your project's dependencies:
+
+```bash
+mvn clean install
+```
+
+### Gradle
+To install the ExcelChunkySAX library using Gradle, add the following dependency to your build.gradle file:
+
+```groovy
+dependencies {
+    implementation 'com.mdazad.chunkysax:excel-chunky-sax:1.0.0'
+}
+```
+
+Then, run the following command to update your project's dependencies:
+
+```bash
+./gradlew build
+```
+
+Please replace `1.0.0` with the actual version of your library.
+
 
 ## Usage
 
@@ -80,3 +117,4 @@ This library was developed by Md Azad.
 
 
 Feel free to use this library to efficiently process large Excel files in your Java applications. If you encounter any issues or have suggestions for improvement, please don't hesitate to get in touch.
+
