@@ -7,9 +7,15 @@
     <!-- Project Information -->
     <groupId>com.mdazad.chunkysax</groupId>
     <artifactId>excel-chunky-sax</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>Demo library</name>
-    <description>A beginner-friendly and straightforward library designed for educational purposes and hands-on learning.</description>
+    <version>1.0.0</version>
+    <name>ExcelChunkySAX</name>
+    <description>
+        The ExcelChunkySAX library provides a way to process large Excel files in chunks using a SAX parser.
+        It reads the Excel file in chunks and performs the specified action on each chunk.
+        The library provides an interface ChunkAction that needs to be implemented to define the action to be performed on each chunk.
+        The library uses Apache POI library to read the Excel file and SAX parser to parse the XML data.
+        Note: any type of date format should be converted to yyyy-MM-dd.
+    </description>
     <url>https://github.com/gitAzad/excel-chunky-sax</url>
 
     <!-- SCM Information -->
@@ -104,7 +110,7 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
+                <version>1.6.13</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
